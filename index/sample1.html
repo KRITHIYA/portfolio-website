@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Order Form</title>
+</head>
+<body>
+    <h1>Order Form</h1>
+    <form th:action="@{/order}" th:object="${order}" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" th:field="*{name}" required /><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" th:field="*{email}" required /><br>
+
+        <label for="instructions">Instructions:</label>
+        <textarea id="instructions" th:field="*{instructions}"></textarea><br>
+
+        <label for="deadline">Deadline:</label>
+        <input type="date" id="deadline" th:field="*{deadline}" /><br>
+
+        <input type="hidden" th:field="*{planType}" />
+        <input type="hidden" th:field="*{amount}" />
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
